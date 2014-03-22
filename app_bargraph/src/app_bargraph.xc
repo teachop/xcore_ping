@@ -37,9 +37,12 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
     uint8_t rolling = 0;
     uint32_t length = strip.numPixels();
     uint32_t center = length/2;
+    const uint32_t maximum = 100; // set 1 meter active range limit
     
     // this is the update rate for the bargraph
     uint32_t speed = ((30*length + (length>>2) + 51) + 5000)*100;
+
+    sensor.setFilter(maximum,10,8);
 
     timer tick;
     uint32_t next_pass;
@@ -49,24 +52,19 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
         select {
         case tick when timerafter(next_pass) :> void:
             next_pass += speed;
-            uint32_t current_distance = 100*sensor.getDistance();
-            // clamping here to 1 meter, the length of the strips
-            if ( (0<current_distance) && (10000>current_distance) ) {
-                uint32_t led_count = current_distance / (10000/length);
-                if ( led_count >= length ) {
-                    led_count = length - 1;
-                }
-                if ( led_count > center ) {
-                    center++;
-                } else if ( led_count < center ) {
-                    center--;
+            uint32_t current_distance = sensor.getDistance();
+            if ( (0<current_distance) && (maximum>current_distance) ) {
+                uint32_t led_count = (100*current_distance) / (100*100/length);
+                if ( center != led_count ) {
+                    led_count = (led_count>=length)? length-1 : led_count;
+                    center = (led_count>center)? center+1 : center-1;
                 }
             }
             rolling++;
             for ( uint32_t pixel=0; pixel<length; ++pixel) {
                 {r,g,b} = wheel((pixel*256/length + rolling) & 255);
                 uint8_t fade = (center>pixel)? (center-pixel) : (pixel-center);
-                fade = (8<fade)? 8 : fade;
+                fade = (5<fade)? 8 : fade;
                 strip.setPixelColorRGB( pixel, r>>fade,g>>fade,b>>fade);
             }
             strip.show();

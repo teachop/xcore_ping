@@ -8,11 +8,11 @@
 
 #include "strip_config.h"
 
-#define MAX_SAMPLES 5
+#define MAX_SAMPLES 10
 
 // ping sensor driver interface
 interface ping_if {
-    void setFilter(uint32_t rate, uint32_t samples);
+    void setFilter(uint32_t max_distance, uint32_t rate, uint32_t samples);
     uint32_t getDistance(void);
 };
 
