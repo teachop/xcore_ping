@@ -13,7 +13,7 @@
 // ping sensor driver interface
 interface ping_if {
     void setFilter(uint32_t max_distance, uint32_t rate, uint32_t samples);
-    uint32_t getDistance(void);
+    uint32_t getDistance(void); //millimeters
 };
 
 void ping_task(port trigger, port pulse, interface ping_if server dvr);

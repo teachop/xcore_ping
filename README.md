@@ -14,13 +14,13 @@ The startKIT begins a sensor reading by first generating a narrow trigger pulse 
 
 ###Driver API
 The driver source is organized as an xCore module.  It uses the the xC interface mechanism for task communication, which provides the API.
-- getDistance(), Provide most recent distance information in centimeters.
-- setFilter(rate,samples), Adjust the driver filtering (and resulting lag).
+- getDistance(), Provide most recent distance information in millimeters.
+- setFilter(range, rate, samples), Adjust the driver filtering (and resulting lag).
 
 The driver task runs concurrently, using a select statement to watch for events.  These events come from the API interface, a sample rate timer, and input port transitions from the Echo signal.  The main task of the driver is to measure the width of the sensor output pulse.  
 
 ###Measurement
 Distance is determined based on the speed of sound:  distance = (Echo pulse width * speed of sound) / 2.  Timing on the xCore is microseconds*100 resolution (100MHz clock) giving a formula:
-- Centimeters = width / 5800
+- Millimeters = width / 580
 The driver uses logic to reject the crazy values and provide a little filtering.  The sensor data sheet recommends that readings be taken at intervals > 60 milliseconds, so filtering options are rather limited!  This is adjusted by the driver API setFilter().
 

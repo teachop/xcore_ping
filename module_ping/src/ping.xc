@@ -16,7 +16,7 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
     uint32_t filter = 1;
     uint32_t lost_pulse = 0;
     uint32_t latest_distance = 0;
-    uint32_t measurement_limit = 100;
+    uint32_t measurement_limit = 1000;
     uint32_t pin_state, enable;
     uint32_t buffer[MAX_SAMPLES];
 
@@ -45,7 +45,7 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
                 start_time = now;
             } else {
                 // echo pulse is low
-                uint32_t reading = (now-start_time) / 5800;//cm
+                uint32_t reading = (now-start_time) / 580;//mm
                 if ( measurement_limit <= reading ) {
                     lost_pulse = 2;
                 }

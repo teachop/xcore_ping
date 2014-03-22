@@ -35,15 +35,13 @@
 void bargraph_task(interface ping_if client sensor, interface neopixel_if client strip) {
     uint8_t r,g,b;
     uint8_t rolling = 0;
-    uint32_t length = strip.numPixels();
-    uint32_t center = length/2;
-    const uint32_t maximum = 100; // set 1 meter active range limit
+    uint32_t leds = strip.numPixels();
+    uint32_t center = leds/2;
+    const uint32_t maximum = 1000; // set 1 meter active range limit, 10mSec, 8 samples
+    sensor.setFilter(maximum, 10, 8);
     
-    // this is the update rate for the bargraph
-    uint32_t speed = ((30*length + (length>>2) + 51) + 5000)*100;
-
-    sensor.setFilter(maximum,10,8);
-
+    // update rate must be > (100 * (30*leds + (leds>>2) + 51))
+    uint32_t speed = 5000*100;
     timer tick;
     uint32_t next_pass;
     tick :> next_pass;
@@ -53,16 +51,16 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
         case tick when timerafter(next_pass) :> void:
             next_pass += speed;
             uint32_t current_distance = sensor.getDistance();
-            if ( (0<current_distance) && (maximum>current_distance) ) {
-                uint32_t led_count = (100*current_distance) / (100*100/length);
+            if ( maximum >= current_distance ) {
+                uint32_t led_count = (100*current_distance) / (100*maximum/leds);
                 if ( center != led_count ) {
-                    led_count = (led_count>=length)? length-1 : led_count;
+                    led_count = (led_count>=leds)? leds-1 : led_count;
                     center = (led_count>center)? center+1 : center-1;
                 }
             }
             rolling++;
-            for ( uint32_t pixel=0; pixel<length; ++pixel) {
-                {r,g,b} = wheel((pixel*256/length + rolling) & 255);
+            for ( uint32_t pixel=0; pixel<leds; ++pixel) {
+                {r,g,b} = wheel(pixel*256/leds + rolling);
                 uint8_t fade = (center>pixel)? (center-pixel) : (pixel-center);
                 fade = (5<fade)? 8 : fade;
                 strip.setPixelColorRGB( pixel, r>>fade,g>>fade,b>>fade);
