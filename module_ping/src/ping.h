@@ -8,10 +8,10 @@
 
 #include "strip_config.h"
 
-#define MAX_SAMPLES 10
+#define MAX_SAMPLES 8
 
 // ping sensor driver interface
-interface ping_if {
+interface ping_if { // data sheet recommends rate >= 60 mSec
     void setFilter(uint32_t max_distance, uint32_t rate, uint32_t samples);
     uint32_t getDistance(void); //millimeters
 };
