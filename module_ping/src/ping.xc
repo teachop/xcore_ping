@@ -67,7 +67,7 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
             return_val = filtered_distance;
             break;
         case dvr.setFilter(uint32_t max_range, uint32_t rate, uint32_t samples):
-            if ( samples && (MAX_SAMPLES >= samples) ) {
+            if ( !samples || !(MAX_SAMPLES >= samples) ) {
                 samples = 1; // must != 0
             }
             if ( 10 > rate ) {
