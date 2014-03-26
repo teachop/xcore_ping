@@ -1,5 +1,5 @@
 ##Ultrasonic Distance Sensing for xCore
-This repository provides an xCore driver module for the HC-SR04 ultrasonic sensor / range finder.  Also included is an example application that runs on the [XMOS xCore startKIT](http://www.xmos.com/startkit).
+This repository provides an xCore driver module for the HC-SR04 ultrasonic sensor / range finder.  An example app is included that uses an [XMOS xCore startKIT](http://www.xmos.com/startkit) with this sensor to make a [NeoPixel LED strip](https://github.com/teachop/xcore_neopixel_buffered) interactive.
 
 ###Introduction
 The [HC-SR04](http://www.micropik.com/PDF/HCSR04.pdf) devices, often called ping sensors, use sonar to determine distance to an object.
