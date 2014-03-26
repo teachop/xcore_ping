@@ -16,14 +16,20 @@ The startKIT begins a sensor reading by first generating a narrow trigger pulse 
 
 ###Driver API
 The driver source is organized as an xCore module.  It uses the the xC interface mechanism for task communication, which provides the API.
-- getDistance(), Get optionally filtered distance reading in millimeters.
-- setFilter(range, rate, samples), Optionally adjust the driver filter settings.
+- **getDistance()**, Get optionally filtered distance reading in millimeters.
+- setFilter(range, rate, samples, toss), Optionally adjust the driver filter settings.
 
 The driver task runs concurrently, using a select statement to watch for events.  These events come from the API interface, a sample rate timer, and input port transitions from the Echo signal.  The main task of the driver is to measure the width of the sensor output pulse.  Readings are taken continually at the requested sample rate.
+
+###Filter Parameters
+- range - in millimeters, the maximum distance to accept as valid.
+- rate - in milliseconds, the sample rate >=10.
+- samples - the number of samples to average.
+- toss - the number of samples to discard when recovering from a bad reading.
 
 ###Measurement
 Distance is determined based on the speed of sound:  distance = (Echo pulse width * speed of sound) / 2.  Timing on the xCore is microseconds*100 resolution (100MHz clock) giving a formula:
 - Millimeters = width / 581
 
-The driver uses logic to reject the crazy values and provide filtering.  The sensor data sheet recommends that readings be taken at intervals >= 60 milliseconds to avoid unwanted echo signals.  The optional filtering (which defaults to off) is an average of the most recent in-range samples.  If a value is out of range, it is replaced in the calculation by the prior valid raw reading.  Filter setting is adjusted by the driver API setFilter().
+The driver uses logic to reject the crazy values and provide filtering.  The sensor data sheet recommends that readings be taken at intervals >= 60 milliseconds to avoid unwanted echo signals.  The optional filtering (which defaults to off) is an average of the most recent in-range samples.  If a value is out of range, it is replaced in the calculation by the prior valid raw reading.  Filter setting is adjusted by the driver API **setFilter()**.
 

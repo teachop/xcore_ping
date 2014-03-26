@@ -38,8 +38,8 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
     uint32_t leds = strip.numPixels();
     uint32_t center = leds/2;
     const uint32_t length_mm = 1000;
-    // set 1 meter range, 50mSec, 4 samples
-    sensor.setFilter(length_mm, 50, 4);
+    // set 1 meter range, 50mSec, 4 samples, toss 2 on lost echo
+    sensor.setFilter(length_mm, 50, 4, 2);
     
     // redraw delay must be > (100 * (30*leds + (leds>>2) + 51))
     const uint32_t tick_rate = 5000*100;

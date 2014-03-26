@@ -17,8 +17,8 @@
 interface ping_if {
 
     // data sheet recommends rate >= 60 mSec
-    // defaults to 1000mm, 60mSec, 1 sample
-    void setFilter(uint32_t max_distance, uint32_t rate, uint32_t samples);
+    // defaults to 1000mm, 60mSec, 1 sample, toss 2
+    void setFilter(uint32_t max_distance, uint32_t rate, uint32_t samples, uint32_t toss);
 
     // get distance in millimeters
     uint32_t getDistance(void);

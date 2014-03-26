@@ -14,6 +14,8 @@
 void ping_task(port trigger, port pulse, interface ping_if server dvr) {
     uint32_t tick_rate = 60*1000*100;
     uint32_t filter = 1;
+    uint32_t toss_reading = 0;
+    uint32_t toss_reload = 2;
     uint32_t filtered_distance = 0;
     uint32_t measurement_limit = 3000;
     uint32_t pin_state = 0;
@@ -51,6 +53,11 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
                 uint32_t reading = (now-start_time) / ECHO_TO_MM;
                 if ( measurement_limit < reading ) {
                     // when out of range or lost, use last raw reading
+                    toss_reading = toss_reload;
+                } else if ( toss_reading ) {
+                    toss_reading--;
+                }
+                if ( toss_reading ) {
                     reading = buffer[0];
                 }
                 uint32_t accum = reading;
@@ -66,7 +73,7 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
         case dvr.getDistance() -> uint32_t return_val:
             return_val = filtered_distance;
             break;
-        case dvr.setFilter(uint32_t max_range, uint32_t rate, uint32_t samples):
+        case dvr.setFilter(uint32_t max_range, uint32_t rate, uint32_t samples, uint32_t toss):
             if ( !samples || !(MAX_SAMPLES >= samples) ) {
                 samples = 1; // must != 0
             }
@@ -76,6 +83,7 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
             measurement_limit = max_range;
             filter = samples;
             tick_rate = rate * 1000 * 100;
+            toss_reload = toss? toss : 1;
             break;
         }
     }
