@@ -52,12 +52,11 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
                 // echo pulse is low
                 uint32_t reading = (now-start_time) / ECHO_TO_MM;
                 if ( measurement_limit < reading ) {
-                    // when out of range or lost, use last raw reading
                     toss_reading = toss_reload;
-                } else if ( toss_reading ) {
-                    toss_reading--;
                 }
                 if ( toss_reading ) {
+                    toss_reading--;
+                    // when out of range or lost, use last raw reading
                     reading = buffer[0];
                 }
                 uint32_t accum = reading;
@@ -74,14 +73,14 @@ void ping_task(port trigger, port pulse, interface ping_if server dvr) {
             return_val = filtered_distance;
             break;
         case dvr.setFilter(uint32_t max_range, uint32_t rate, uint32_t samples, uint32_t toss):
-            if ( !samples || !(MAX_SAMPLES >= samples) ) {
-                samples = 1; // must != 0
+            if ( MAX_SAMPLES < samples ) {
+                samples = MAX_SAMPLES;
             }
-            if ( 10 > rate ) {
-                rate = 10;
+            if ( MIN_RATE > rate ) {
+                rate = MIN_RATE;
             }
             measurement_limit = max_range;
-            filter = samples;
+            filter = samples? samples : 1; // must != 0
             tick_rate = rate * 1000 * 100;
             toss_reload = toss? toss : 1;
             break;
