@@ -37,6 +37,7 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
     uint8_t rolling = 0;
     uint32_t leds = strip.numPixels();
     uint32_t center = leds/2;
+    const uint32_t fade_band = 5;// < 9, 0 disables
     const uint32_t length_mm = 1000;
     // set 1 meter range, 50mSec, 4 samples, toss 2 on lost echo
     sensor.setFilter(length_mm, 50, 4, 2);
@@ -63,7 +64,7 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
             for ( uint32_t pixel=0; pixel<leds; ++pixel) {
                 {r,g,b} = wheel(pixel*256/leds + rolling);
                 uint8_t fade = (center>pixel)? (center-pixel) : (pixel-center);
-                fade = (5<fade)? 8 : fade;
+                fade = (fade_band<fade)? 8 : fade;
                 strip.setPixelColorRGB( pixel, r>>fade,g>>fade,b>>fade);
             }
             strip.show();
@@ -76,9 +77,9 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
 // ---------------------------------------------------------
 // main - xCore ping sensor test
 //
-port trig_pin = XS1_PORT_1F; // j7.1
-port echo_pin = XS1_PORT_1H; // j7.2
-port led_pin  = XS1_PORT_1G; // j7.3
+port trig_pin = XS1_PORT_1J; // j7.10
+port echo_pin = XS1_PORT_1K; // j7.11
+port led_pin  = XS1_PORT_1M; // j7.15
 
 int main() {
     interface neopixel_if neopixel_strip;
