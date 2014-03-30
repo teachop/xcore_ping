@@ -102,9 +102,11 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
     uint8_t rolling = 0;
     uint32_t leds = strip.numPixels();
     uint32_t center = leds/2;
-    const uint32_t fade_band = 5;// < 9, 0 disables
-    const uint32_t length_mm = 1000;
-    // set 1 meter range, 50mSec, 4 samples, toss 2 on lost echo
+    uint32_t short_strip = (16 >= leds);
+    const uint32_t fade_band = short_strip? 2:5;// < 9, 0 disables
+    const uint32_t length_mm = short_strip? 500:1000;
+    strip.setBrightness(short_strip? 63:255);
+    // set range, sample rate, averaging, toss 2 on lost echo
     sensor.setFilter(length_mm, 50, 4, 2);
     
     // redraw delay must be > (100 * (30*leds + (leds>>2) + 51))
