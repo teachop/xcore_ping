@@ -163,6 +163,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.xc.compiler.input.797917988" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
@@ -278,6 +280,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.1519957877" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
@@ -399,6 +403,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.109655903" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>
@@ -591,6 +597,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.xc.compiler.input.528761863" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
@@ -706,6 +714,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.c.compiler.input.c.1115173850" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
@@ -827,6 +837,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg}&quot;"/>
 								</option>
 								<inputType id="com.xmos.cdt.cxx.compiler.input.cpp.1870901268" name="C++" superClass="com.xmos.cdt.cxx.compiler.input.cpp"/>
 							</tool>

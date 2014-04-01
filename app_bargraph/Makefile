@@ -10,7 +10,7 @@ TARGET = STARTKIT
 APP_NAME = app_bargraph
 
 # The USED_MODULES variable lists other module used by the application.
-USED_MODULES = module_ping module_neopixel
+USED_MODULES = module_neopixel module_ping module_seven_seg
 
 # The flags passed to xcc when building the application
 # You can also set the following to override flags for a particular language:

@@ -5,9 +5,9 @@ The distance measurements are also sent in centimeters to an optional Sparkfun S
 
 ###Required Modules
 For an xCore xC application, the required modules are listed in the Makefile:
-- USED_MODULES = module_ping module_neopixel
+- USED_MODULES = module_ping module_neopixel module_seven_seg
 
-The modules can be found [here](https://github.com/teachop/xcore_neopixel_buffered) and [here](https://github.com/teachop/xcore_ping).
+The modules can be found [here](https://github.com/teachop/xcore_neopixel_buffered),  [here](https://github.com/teachop/xcore_ping) and [here](https://github.com/teachop/xcore_seven_seg).
 
 ###Wiring
 On the startKIT J7 connector:
