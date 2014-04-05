@@ -36,6 +36,7 @@
 void bargraph_task(interface ping_if client sensor, interface neopixel_if client strip, interface seven_seg_if client display) {
     uint8_t r,g,b;
     uint8_t rolling = 0;
+    uint32_t display_busy = 0;
     uint32_t leds = strip.numPixels();
     uint32_t center = leds/2;
     uint32_t short_strip = (16 >= leds);
@@ -53,11 +54,17 @@ void bargraph_task(interface ping_if client sensor, interface neopixel_if client
 
     while (1) {
         select {
+        case display.written():
+                display_busy = 0;
+            break;
         case tick when timerafter(next_tick) :> void:
             next_tick += tick_rate;
             uint32_t current_distance = sensor.getDistance();
             if ( length_mm >= current_distance ) {
-                display.setValue( current_distance, 1, 0 );
+                if ( !display_busy ) {
+                    display.setValue( current_distance, 1, 0 );
+                    display_busy = 1;
+                }
                 uint32_t led_count = (100*current_distance) / (100*length_mm/leds);
                 if ( center != led_count ) {
                     led_count = (led_count>=leds)? leds-1 : led_count;
