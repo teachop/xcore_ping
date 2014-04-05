@@ -7,6 +7,6 @@
 #define __STRIP_CONFIG_H__
 
 // neopixel strip length
-#define LEDS 60
+#define LEDS 8
 
 #endif // __STRIP_CONFIG_H__
