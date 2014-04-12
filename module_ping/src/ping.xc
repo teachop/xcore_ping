@@ -11,6 +11,7 @@
 // ---------------------------------------------------------
 // ping_task - ultrasonic distance sensor driver for HC-SR04
 //
+[[combinable]]
 void ping_task(port trigger, port pulse, interface ping_if server dvr) {
     uint32_t tick_rate = 60*1000*100;
     uint32_t filter = 1;

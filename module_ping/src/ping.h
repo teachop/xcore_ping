@@ -25,6 +25,9 @@ interface ping_if {
     uint32_t getDistance(void);
 };
 
+// while ping satisfies combinable requirements
+// be aware stable pulse measurement is time sensitive
+[[combinable]]
 void ping_task(port trigger, port pulse, interface ping_if server dvr);
 
 
