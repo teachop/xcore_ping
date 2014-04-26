@@ -159,8 +159,6 @@
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/xc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
@@ -276,8 +274,6 @@
 								<option id="com.xmos.c.compiler.option.include.paths.1875988984" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
@@ -399,8 +395,6 @@
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/c++/4.2.1&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/c++/4.2.1/xcore-xmos-elf&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
@@ -593,8 +587,6 @@
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/xc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
@@ -710,8 +702,6 @@
 								<option id="com.xmos.c.compiler.option.include.paths.1301291588" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
@@ -833,8 +823,6 @@
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/gcc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/c++/4.2.1&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/c++/4.2.1/xcore-xmos-elf&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_neopixel}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_ping/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/module_seven_seg/src}&quot;"/>
@@ -875,6 +863,6 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="app_bargraph.null.562134114" name="app_bargraph"/>
+		<project id="app_distance.null.562134114" name="app_distance"/>
 	</storageModule>
 </cproject>
