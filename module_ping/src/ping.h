@@ -6,8 +6,6 @@
 #ifndef __PING_H__
 #define __PING_H__
 
-#include "strip_config.h"
-
 #define MAX_SAMPLES 8
 #define MIN_RATE 10
 

@@ -99,7 +99,7 @@ int main() {
     interface seven_seg_if display;
 
     par {
-        neopixel_task(led_pin, neopixel_strip);
+        neopixel_task(led_pin, PIXELS(8), NEO_GRB, neopixel_strip);
         bargraph_task(ping_sensor, neopixel_strip, display);
         ping_task(trig_pin, echo_pin, ping_sensor);
         seven_seg_task(txd_pin, 9600, display);
